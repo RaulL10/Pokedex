@@ -27,3 +27,4 @@ def about(request):
 
 def pokemon_index(request):
     return render(request, 'pokemon/index.html')
+    
