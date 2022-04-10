@@ -3,17 +3,12 @@ body {
     color: rgb(225, 55, 31);
     font-family: 'Roboto', sans-serif;
     background-image: url(https://i.imgur.com/0NPcBDd.png);
-}
-nav {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 80px;
-    width: 100%;
-    background-color: lightgray;
+    margin: 15px 10px 10px 10px;
 }
 a {
     text-decoration: none;
     color: black;
+    
 }
 ul {
     list-style: none;
@@ -23,17 +18,35 @@ ul {
 li {
     margin-left: 10px;
     margin-right: 10px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .left {
     float: left;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    height: 80px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .right {
     float: right;
     display: inline-flex;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin: 0;
+}
+nav {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 80px;
+    width: 100%;
+    background-color: lightgray;
+}
+nav > ul > li:hover:not(.active) {
+    background-size: 100%;
+    color: grey;
+    background-color: rgb(42, 157, 209);
 }
 h1 {
     text-align: center;
@@ -68,11 +81,25 @@ p {
 h2 {
     margin: 0 auto;
     color: rgb(225, 55, 31);
+    font-size: 30px;
 }
 .values {
-    color: lightgrey
+    color: lightgrey;
+    color: rgb(42, 157, 209);
+
 }
 strong {
-    font-size: 18px;
     color: rgb(42, 157, 209);
+    font-size: larger;
+}
+#home {
+    background-image: url(https://i.imgur.com/gqGL9GW.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0 auto;
+}
+#homeTitle {
+    font-size: 120px;
+    margin-bottom: 10px;
 }
