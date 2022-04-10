@@ -39,9 +39,6 @@ h1 {
     text-align: center;
     font-size: 80px;
 }
-strong {
-    color: black;
-}
 main {
     max-width: 85%;
     margin: 0 auto;
@@ -49,8 +46,7 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    color: black
-
+    color: black;
 }
 p {
     text-align: center;
@@ -58,7 +54,7 @@ p {
     font-size: 20px;
     max-width: 750px;
     margin: 0 auto;
-    color: white
+    color: white;
 }
 .card {
     max-height: 350px;
@@ -75,4 +71,7 @@ h2 {
 }
 .values {
     color: lightgrey
+}
+strong {
+    color: yellow
 }
