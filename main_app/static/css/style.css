@@ -73,5 +73,6 @@ h2 {
     color: lightgrey
 }
 strong {
-    color: yellow
+    font-size: 18px;
+    color: rgb(42, 157, 209);
 }
