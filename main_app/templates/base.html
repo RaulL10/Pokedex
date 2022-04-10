@@ -8,24 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>Pokemon</title>
 </head>
 <body>
     <header>
         <nav>
             <ul class="left">
-                <li><a href="/">HOME</a></li>
+                <li><a href="/"><img src="https://i.imgur.com/KOaRATv.png" height="50px" width="50px"></a></li>
             </ul>
             <ul class="right">
+                <li><a href="/pokemon">POKÉMON</a></li>
                 <li><a href='/about'>ABOUT</a></li>
-                <li><a href="/pokemon">ALL POKEMON</a></li>
             </ul>
         </nav>
     </header>
-    <main>
         {% block content %}
         {% endblock %}
-    </main>
 </body>
 </html>
