@@ -15,11 +15,12 @@
     <header>
         <nav>
             <ul class="left">
-                <li><a href="/"><img src="https://i.imgur.com/KOaRATv.png" height="50px" width="50px"></a></li>
+                <li><a href="{% url 'home' %}"><img src="https://i.imgur.com/KOaRATv.png" height="50px" width="50px"></a></li>
             </ul>
             <ul class="right">
-                <li><a href="/pokemon">POKÉMON</a></li>
-                <li><a href='/about'>ABOUT</a></li>
+                <li><a href="{% url 'index' %}">POKÉMON</a></li>
+                <li><a href="{% url 'pokemons_create' %}">CREATE A POKÉMON</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
             </ul>
         </nav>
     </header>

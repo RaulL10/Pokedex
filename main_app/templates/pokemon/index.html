@@ -5,12 +5,14 @@
 <main>
     {% for pokemon in pokemons %}
     <div class="card">
-        <div class="content">
-        <h2 class="card-title">{{ pokemon.name }}</h2>
-        <p><strong class="values">Type:</strong> {{ pokemon.type }}</p>
-        <p><strong class="values">Ability:</strong> {{ pokemon.ability }}</p>
-        <p><strong class="values">Description:</strong> {{ pokemon.description }}</p>
-        </div>
+        <a href="{% url 'detail' pokemon.id %}">
+            <div class="content">
+                <h2 class="card-title">{{ pokemon.name }}</h2>
+                <p><strong class="values">Type:</strong> {{ pokemon.type }}</p>
+                <p><strong class="values">Ability:</strong> {{ pokemon.ability }}</p>
+                <p><strong class="values">Description:</strong> {{ pokemon.description }}</p>
+            </div>
+        </a>
     </div>
     {% endfor %}
 </main>
