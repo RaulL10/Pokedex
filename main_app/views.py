@@ -36,3 +36,11 @@ def pokemons_detail(request, pokemon_id):
 class PokemonCreate(CreateView):
     model = Pokemon
     fields = '__all__'
+
+class PokemonUpdate(UpdateView):
+    model = Pokemon
+    fields = ['type', 'ability', 'description']
+
+class PokemonDelete(DeleteView):
+    model = Pokemon
+    success_url = '/pokemons/'

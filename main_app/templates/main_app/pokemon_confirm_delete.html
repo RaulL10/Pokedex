@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>DELETE PPOKÉMON</h1>
+<h3>Are you sure you want to delete <strong>{{ object.name }}</strong>?</h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="delete">
+    <a href="{% url 'detail' pokemon.id %}">Cancel</a>
+  </form>
+
+
+
+
+{% endblock %}
