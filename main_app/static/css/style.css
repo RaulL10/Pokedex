@@ -1,5 +1,5 @@
 body {
-    min-height: 100vh;
+    height: 100vh;
     color: rgb(225, 55, 31);
     font-family: 'Roboto', sans-serif;
     background-image: url(https://i.imgur.com/0NPcBDd.png);
@@ -110,6 +110,7 @@ form {
     font-size: 25px;
     max-width: 50%;
     margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
 }
 .btn {
     font-size: 25px;
@@ -124,6 +125,7 @@ table {
     color: white;
     max-width: 50%;
     font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 td {
     display: inline-flex;
