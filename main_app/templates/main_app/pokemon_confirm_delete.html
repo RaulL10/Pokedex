@@ -3,10 +3,10 @@
 {% block content %}
 <h1>DELETE PPOKÉMON</h1>
 <h3>Are you sure you want to delete <strong>{{ object.name }}</strong>?</h3>
-<form action="" method="POST">
+<form action="" method="POST" id="deleteId">
     {% csrf_token %}
-    <input type="submit" value="delete" class="btn">
-    <a href="{% url 'detail' pokemon.id %}">Cancel</a>
+    <a href="{% url 'detail' pokemon.id %}" id="cancel">Cancel</a>
+    <input type="submit" value="delete" id="del" class="btn">
   </form>
 
 

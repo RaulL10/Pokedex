@@ -138,3 +138,20 @@ td {
 .label {
     color:rgb(42, 157, 209)
 }
+h3 {
+    font-size: 25px;
+    text-align: center;
+}
+#deleteId {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+}
+#del {
+    margin-top: 15px;
+}
+#cancel {
+    color: rgb(42, 157, 209);
+    margin-top: 10px;
+}
