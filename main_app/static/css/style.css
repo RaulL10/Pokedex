@@ -104,3 +104,37 @@ strong {
     font-size: 120px;
     margin-bottom: 10px;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    max-width: 50%;
+    margin: 0 auto;
+}
+.btn {
+    font-size: 25px;
+    max-width: 220px;
+    align-self: center;
+}
+input {
+    font-size: 20px
+}
+table {
+    margin: 0 auto;
+    color: white;
+    max-width: 50%;
+    font-size: 20px;
+}
+td {
+    display: inline-flex;
+}
+#delete {
+    margin-left: 20px;
+}
+.detailBtn {
+    background-color: lightgrey;
+    margin-top: 10px;
+}
+.label {
+    color:rgb(42, 157, 209)
+}
