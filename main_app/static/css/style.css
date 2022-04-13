@@ -157,3 +157,44 @@ h3 {
     color: rgb(42, 157, 209);
     margin-top: 10px;
 }
+#training_form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    'form train';
+    margin-top: 60px;
+}
+#form {
+    grid-area: form;
+    justify-content: space-evenly;
+
+}
+#training {
+    grid-area: train;
+}
+#id_time {
+    font-size: 30px;
+}
+#id_type {
+    font-size: 25px;
+}
+label {
+    color:rgb(42, 157, 209)
+} 
+#add_training {
+    font-size: 30px;
+    max-width: 250px;
+    align-self: center;
+    margin-top: 10px;
+}
+h3 {
+    font-size: 45px;
+    margin-top: 60px;
+}
+h4 {
+    font-size: 45px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}

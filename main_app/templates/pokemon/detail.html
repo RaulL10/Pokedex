@@ -22,18 +22,22 @@
         </tr>
     </table>
 
-    <d>
-        <form action="{% url 'add_training' pokemon.id %}" method="POST">
+    <h3>Add Training Session:</h3>
+    <div id="training_form">
+        <form action="{% url 'add_training' pokemon.id %}" method="POST" id="form">
             {% csrf_token %}
-            {{ training_form.as_p }}
-            <input type="submit" value="Add Training">
+            {{ training_form.as_table }}
+            <input type="submit" id="add_training" value="Add Training">
           </form>
-        <h3>TRAININGS</h3>
-        {% for training in pokemon.training_set.all %}
-        <p><strong>When: </strong> <br> {{ training}}</p>
-        <p><strong>Training Reason: </strong> <br>{{ training.type }}</p>
-        {% endfor %}
-    </d><br>
+
+          <div id="training">
+              <h4>TRAININGS</h4>
+              {% for training in pokemon.training_set.all %}
+              <p><strong>When: </strong> <br> {{ training}}</p>
+              <p><strong>Training Reason: </strong> <br>{{ training.type }}</p>
+              {% endfor %}
+          </div>
+    </div><br>
     
     
 {% endblock %}
