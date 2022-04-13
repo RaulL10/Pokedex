@@ -19,9 +19,11 @@ def pokemons_index(request):
 
 def pokemons_detail(request, pokemon_id):
     pokemon = Pokemon.objects.get(id=pokemon_id)
+    id_list = pokemon.pokeballs.all().values_list('id')
+    pokeballs_pokemon_doesnt_have = Pokeball.objects.exclude(id__in=id_list)
     training_form = TrainingForm()
     return render(request, 'pokemon/detail.html', {
-        'pokemon': pokemon, 'training_form': training_form
+        'pokemon': pokemon, 'training_form': training_form, 'pokeballs': pokeballs_pokemon_doesnt_have
     })
 
 def add_training(request, pokemon_id):
@@ -32,9 +34,14 @@ def add_training(request, pokemon_id):
         new_training.save()
         return redirect('detail', pokemon_id=pokemon_id)
 
+def assoc_pokeball(request, pokemon_id, pokeball_id):
+    Pokemon.objects.get(id=pokemon_id).pokeballs.add(pokeball_id)
+    return redirect('detail', pokemon_id=pokemon_id)
+
+
 class PokemonCreate(CreateView):
     model = Pokemon
-    fields = '__all__'
+    fields = ['name', 'type', 'ability', 'description']
 
 class PokemonUpdate(UpdateView):
     model = Pokemon
