@@ -26,7 +26,7 @@ class Pokemon(models.Model):
 
 class Training(models.Model):
     time = models.CharField(
-        max_length=3,
+        max_length=1,
         choices=HOURS,
         default=HOURS[0][0]
     )
@@ -36,4 +36,4 @@ class Training(models.Model):
     pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.get_time_display()} on {self.date}"
+        return f"{self.get_time_display()}"

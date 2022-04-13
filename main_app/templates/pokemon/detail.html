@@ -22,7 +22,14 @@
         </tr>
     </table>
 
-
+    <div>
+        <h3>TRAININGS</h3>
+        {% for training in pokemon.training_set.all %}
+        <p>{{ training.date }}</p>
+        <p>{{ training}}</p>
+        <p>{{ training.type }}</p>
+        {% endfor %}
+    </div>
 
 
 
