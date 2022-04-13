@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ pokeball.name }}</h1>
+    <table>
+        <tr>
+            <td class="label"> Type: </td>
+            <td> {{pokeball.color }} </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'pokeballs_update' pokeball.id %}" class="detailBtn">EDIT</a>
+                <a href="{% url 'pokeballs_delete' pokeball.id %}" class="detailBtn" id="delete">DELETE</a>
+            </td>
+        </tr>
+    </table>
+
+    {% endblock %}

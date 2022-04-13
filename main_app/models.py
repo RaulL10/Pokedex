@@ -27,6 +27,7 @@ class Pokemon(models.Model):
     type = models.CharField(max_length=100)
     ability = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
+    pokeballs = models.ManyToManyField(Pokeball)
 
     def __str__(self):
         return self.name

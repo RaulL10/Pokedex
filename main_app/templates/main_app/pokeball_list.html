@@ -2,7 +2,7 @@
 {% block content %}
 <h1> POKÉBALLS </h1>
 <main>
-    {% for pokeball in pokeballs %}
+    {% for pokeball in pokeball_list %}
     <div class="card">
         <a href="{% url 'pokeballs_detail' pokeball.id %}">
             <div class="content">

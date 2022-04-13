@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>DELETE POKÉBALL</h1>
+<h3>Are you sure you want to delete <strong>{{ object.name }}</strong>?</h3>
+<form action="" method="POST" id="deleteId">
+    {% csrf_token %}
+    <a href="{% url 'pokeballs_detail' object.id %}" id="cancel">Cancel</a>
+    <input type="submit" value="delete" id="del" class="btn">
+  </form>
+
+{% endblock %}

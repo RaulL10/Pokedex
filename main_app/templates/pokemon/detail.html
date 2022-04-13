@@ -38,6 +38,24 @@
               {% endfor %}
           </div>
     </div><br>
-    
+    <hr>
+    <div>
+        <div>
+            <h3>{{ pokemon.name }}'s Pokéballs</h3>
+            {% if pokemon.pokeballs.count %}
+            {% for pokeball in pokemon.pokeballs.all %}
+                <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                    A <span>{{ toy.color }}</span> {{ toy.name }}
+                    </span>
+                </div>
+                </div>
+            {% endfor %}
+            {% else %}
+            <h5>No Pokéballs :(</h5>
+            {% endif %}
+        </div>
+     </div>
     
 {% endblock %}
