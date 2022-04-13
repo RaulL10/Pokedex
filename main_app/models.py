@@ -10,6 +10,17 @@ HOURS = (
     ('E', 'Evening'),
 )
 
+class Pokeball(models.Model):
+    name = models.CharField(max_length=50)
+    color = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('pokeballs_detail', kwargs={'pk': self.id})
+
+
 
 class Pokemon(models.Model):
     name = models.CharField(max_length=100)

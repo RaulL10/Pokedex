@@ -1,22 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Pokemon
+from .models import Pokeball, Pokemon, Pokeball
 # Create your views here.
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from .forms import TrainingForm
-
-# class Pokemon:
-#     def __init__(self, name, type, ability, description):
-#         self.name = name
-#         self.type = type
-#         self.ability = ability
-#         self.description = description
-
-# pokemons = [
-#     Pokemon('Bulbasaur', 'Grass', 'Razor Leaf', 'There is a plant seed on its back right from the day its born. The see slowly grows larger.'),
-#     Pokemon('Charmander', 'Fire', 'Ember', 'It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.'),
-#     Pokemon('Squirtle', 'Water', 'Water Gun', 'When it retracts its long neck into its shell, it squirts out water with vigorous force.'),
-#     Pokemon('Pikachu', 'Electric', 'Thunderbolt', 'Pikachu that can generate powerful electricity and have cheek sacs that are extra soft and super stretchy.'),
-# ]
 
 
 
@@ -56,3 +43,22 @@ class PokemonUpdate(UpdateView):
 class PokemonDelete(DeleteView):
     model = Pokemon
     success_url = '/pokemons/'
+
+class PokeballList(ListView):
+    model = Pokeball
+
+class PokeballDetail(DetailView):
+    model = Pokeball
+
+class PokeballCreate(CreateView):
+    model = Pokeball
+    fields = '__all__'
+
+class PokeballUpdate(UpdateView):
+    model = Pokeball
+    fields = ['name', 'color']
+
+class PokeballDelete(DeleteView):
+    model = Pokeball
+    success_url = '/pokeballs/'
+

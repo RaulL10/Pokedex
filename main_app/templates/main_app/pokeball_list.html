@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> POKÉBALLS </h1>
+<main>
+    {% for pokeball in pokeballs %}
+    <div class="card">
+        <a href="{% url 'pokeballs_detail' pokeball.id %}">
+            <div class="content">
+                <h2 class="card-title">{{ pokeball.name }}</h2>
+                <p><strong class="values">Color: </strong> {{ pokeball.color }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}
+
