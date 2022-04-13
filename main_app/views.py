@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Pokemon
 # Create your views here.
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import TrainingForm
 
 # class Pokemon:
 #     def __init__(self, name, type, ability, description):
@@ -31,7 +32,18 @@ def pokemons_index(request):
 
 def pokemons_detail(request, pokemon_id):
     pokemon = Pokemon.objects.get(id=pokemon_id)
-    return render(request, 'pokemon/detail.html', { 'pokemon': pokemon})
+    training_form = TrainingForm()
+    return render(request, 'pokemon/detail.html', {
+        'pokemon': pokemon, 'training_form': training_form
+    })
+
+def add_training(request, pokemon_id):
+    form = TrainingForm(request.POST)
+    if form.is_valid():
+        new_training = form.save(commit=False)
+        new_training.pokemon_id = pokemon_id
+        new_training.save()
+        return redirect('detail', pokemon_id=pokemon_id)
 
 class PokemonCreate(CreateView):
     model = Pokemon

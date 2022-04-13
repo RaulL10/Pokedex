@@ -31,7 +31,6 @@ class Training(models.Model):
         default=HOURS[0][0]
     )
     type = models.CharField(max_length=200)
-    date = models.DateField()
 
     pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
 
