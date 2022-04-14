@@ -39,44 +39,50 @@
           </div>
     </div><br>
     <hr>
-    <div>
-        <div>
-            <h3>{{ pokemon.name }}'s Pokéballs</h3>
-            {% if pokemon.pokeballs.count %}
-            {% for pokeball in pokemon.pokeballs.all %}
-                <div class="card">
-                <div class="card-content">
-                    <span class="card-title">
-                    A <span>{{ pokeball.color }}</span> {{ pokeball.name }}
-                    </span>
-                </div>
-                </div>
-            {% endfor %}
-            {% else %}
-            <h5>No Pokéballs :(</h5>
-            {% endif %}
-        </div>
-     </div>
-     <div>
-        <h3>Available Pokéballs</h3>
-        {% if pokeballs.count %}
-          {% for pokeball in pokeballs.all %}
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">
-                <span>{{ pokeball.color }}</span> {{ pokeball.name }}
-                </span>
-              </div>
-              <div class="card-action">
-                <form action="{% url 'assoc_pokeball' pokemon.id pokeball.id %}" method="POST">
-                  {% csrf_token %}
-                  <button type="submit" class="btn">Add</button>
-                </form>
-              </div>
+    <section id="pokeballTemplate">
+        <div id="choice">
+            <div>
+                <h3>{{ pokemon.name }}'s Pokéballs</h3>
+                {% if pokemon.pokeballs.count %}
+                {% for pokeball in pokemon.pokeballs.all %}
+                    <div class="cardP">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <p class="pName">{{ pokeball.name }}</p>
+                            <span>{{ pokeball.color }}</span> 
+                        </span>
+                    </div>
+                    </div>
+                {% endfor %}
+                {% else %}
+                <h5>No Pokéballs :(</h5>
+                {% endif %}
             </div>
-          {% endfor %}
-        {% else %}
-          <h5>{{pokemon.name}} Already Has All POKÉBALLS Available</h5>
-        {% endif %}
-      </div>
+        </div>
+        <div id="pokeball">
+            <h3 id="hdr">Available Pokéballs</h3>
+            <aside>
+            {% if pokeballs.count %}
+            {% for pokeball in pokeballs.all %}
+                <div class="cardP">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <p class="pName">{{ pokeball.name }}</p>
+                            <span>{{ pokeball.color }}</span>
+                        </span>
+                    </div>
+                    <div class="card-action">
+                        <form action="{% url 'assoc_pokeball' pokemon.id pokeball.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Add</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h5>{{pokemon.name}} Already Has All POKÉBALLS Available</h5>
+                {% endif %}
+            </aside>
+        </div>
+    </section>
 {% endblock %}

@@ -6,7 +6,7 @@
 {% else %}
 <h1>CREATE POKÉBALL</h1>
 {% endif %}
-<form action="" method="POST">
+<form action="" method="POST" id="pokeballcreate">
     {% csrf_token %} 
     <table>
         {{ form.as_table }}
