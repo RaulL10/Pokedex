@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Pokemon, Pokeball, Photo
+from .forms import TrainingForm
 import boto3
 import uuid
 import os
-from .models import Pokemon, Pokeball, Photo
-# Create your views here.
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
-from .forms import TrainingForm
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 
 
 def home(request):
@@ -17,10 +18,13 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def pokemons_index(request):
     pokemons = Pokemon.objects.all()
     return render(request, 'pokemon/index.html', {'pokemons': pokemons})
 
+
+@login_required
 def pokemons_detail(request, pokemon_id):
     pokemon = Pokemon.objects.get(id=pokemon_id)
     id_list = pokemon.pokeballs.all().values_list('id')
@@ -30,6 +34,8 @@ def pokemons_detail(request, pokemon_id):
         'pokemon': pokemon, 'training_form': training_form, 'pokeballs': pokeballs_pokemon_doesnt_have
     })
 
+
+@login_required
 def add_training(request, pokemon_id):
     form = TrainingForm(request.POST)
     if form.is_valid():
@@ -38,10 +44,15 @@ def add_training(request, pokemon_id):
         new_training.save()
         return redirect('detail', pokemon_id=pokemon_id)
 
+
+@login_required
 def assoc_pokeball(request, pokemon_id, pokeball_id):
     Pokemon.objects.get(id=pokemon_id).pokeballs.add(pokeball_id)
     return redirect('detail', pokemon_id=pokemon_id)
 
+
+
+@login_required
 def add_photo(request, pokemon_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -68,13 +79,13 @@ def signup(request):
             return redirect('index')
         else: 
             error_message = 'Invalid sign up - try again'
-        form = UserCreationForm()
-        context = {'form': form, 'error_message': error_message}
-        return render(request, 'registration/signup.html', context)
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)
 
 
 
-class PokemonCreate(CreateView):
+class PokemonCreate(LoginRequiredMixin, CreateView):
     model = Pokemon
     fields = ['name', 'type', 'ability', 'description']
 
@@ -83,29 +94,29 @@ class PokemonCreate(CreateView):
         return super().form_valid(form)
 
 
-class PokemonUpdate(UpdateView):
+class PokemonUpdate(LoginRequiredMixin, UpdateView):
     model = Pokemon
     fields = ['type', 'ability', 'description']
 
-class PokemonDelete(DeleteView):
+class PokemonDelete(LoginRequiredMixin, DeleteView):
     model = Pokemon
     success_url = '/pokemons/'
 
-class PokeballList(ListView):
+class PokeballList(LoginRequiredMixin, ListView):
     model = Pokeball
 
-class PokeballDetail(DetailView):
+class PokeballDetail(LoginRequiredMixin, DetailView):
     model = Pokeball
 
-class PokeballCreate(CreateView):
+class PokeballCreate(LoginRequiredMixin, CreateView):
     model = Pokeball
     fields = '__all__'
 
-class PokeballUpdate(UpdateView):
+class PokeballUpdate(LoginRequiredMixin, UpdateView):
     model = Pokeball
     fields = ['name', 'color']
 
-class PokeballDelete(DeleteView):
+class PokeballDelete(LoginRequiredMixin, DeleteView):
     model = Pokeball
     success_url = '/pokeballs/'
 
