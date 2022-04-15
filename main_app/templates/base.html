@@ -26,6 +26,7 @@
                 <li><a href="{% url 'pokeballs_create' %}">ADD POKÉBALLS</a></li>
                 <li><a href="{% url 'logout' %}">LOG OUT</a></li>
             {% else %}
+                <li><a href="{% url 'signup' %}">SIGN UP</a></li>
                 <li><a href="{% url 'login' %}">LOG IN</a></li>
             {% endif %}
                 <li><a href="{% url 'about' %}">ABOUT</a></li>

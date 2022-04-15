@@ -17,4 +17,6 @@ urlpatterns = [
     path('pokeballs/<int:pk>/delete/', views.PokeballDelete.as_view(), name='pokeballs_delete'),
     path('pokemons/<int:pokemon_id>/assoc_pokeball/<int:pokeball_id>/', views.assoc_pokeball, name='assoc_pokeball'),
     path('pokemons/<int:pokemon_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('accounts/signup/', views.signup, name='signup'),
+
 ]
