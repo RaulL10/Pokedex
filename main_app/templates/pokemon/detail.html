@@ -2,8 +2,8 @@
 {% block content %}
     <h1>{{ pokemon.name }}</h1>
    <!-- Container for the image gallery -->
-<div class="container">
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<div id="container-photo">
+    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a> -->
 
     {% for photo in pokemon.photo_set.all %}
     <img class="mySlides" src="{{photo.url}}" width="475px" height="475px">
@@ -12,12 +12,15 @@
     {% endfor %}
 
     <!-- Next and previous buttons -->
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <!-- <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
 
 </div>
       
 
+    {% if pokemon.photo_set.all %}
 
+    <h3> </h3>
+    {% else %}
     <form action="{% url 'add_photo' pokemon.id %}" enctype="multipart/form-data" method="POST" class="photo-form">
         {% csrf_token %}
         <input type="file" name="photo-file" id="choose-file">
@@ -25,6 +28,7 @@
         <input type="submit" class="btn" value="Upload Photo">
     </form>
 
+    {% endif %}
 
 
 

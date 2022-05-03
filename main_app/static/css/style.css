@@ -252,8 +252,18 @@ aside {
     height: 200px;
 }
 .photo-form {
-    display: inline-flex;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 300px;
 }
+#container-photo {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+
 
 * {
     box-sizing: border-box;
