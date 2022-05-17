@@ -6,7 +6,7 @@
     <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a> -->
 
     {% for photo in pokemon.photo_set.all %}
-    <img class="mySlides" src="{{photo.url}}" width="475px" height="475px">
+    <img class="mySlides" src="{{photo.url}}" width="250px" height="250px">
     {% empty %}
     <h2>No Photos Uploaded</h2>
     {% endfor %}
